@@ -20,34 +20,26 @@ class BST:
         elif key > node.key:
             node.right = self._insert(node.right, key)
         return node
-
+    
     def inorder(self):
         return self._inorder(self.root)
 
     def _inorder(self, node):
         return self._inorder(node.left) + [node.key] + self._inorder(node.right) if node else []
 
-    def preorder(self):
-        return self._preorder(self.root)
 
-    def _preorder(self, node):
-        return [node.key] + self._preorder(node.left) + self._preorder(node.right) if node else []
 
-    def postorder(self):
-        return self._postorder(self.root)
-
-    def _postorder(self, node):
-        return self._postorder(node.left) + self._postorder(node.right) + [node.key] if node else []
-
-    #export i save_to_tex nie dzialaja
-    
     def export(self, node):
-        if not node.left and not node.right:
-            return f"node{node.key}"
-        l_str = f"child{self.export(node.left)}" if node.left else "child[missing]"
-        r_str = f"child{self.export(node.right)}" if node.right else "child[missing]"
-        return f"node{node.key}{{{l_str}}}{{{r_str}}}"
+        if not node:
+            return ""
+        left = self.export(node.left)
+        right = self.export(node.right)
 
+        left_str = f"child {{ {left} }}" if node.left else "child[missing]"
+        right_str = f"child {{ {right} }}" if node.right else "child[missing]"
+
+        return f"node {{{node.key}}} {left_str} {right_str}"
+    
 def save_to_tex(tree, filename="tree.tex"):
     with open(filename, "w", encoding="utf-8") as f:
         f.write("\\documentclass{article}\n")
@@ -69,20 +61,12 @@ def save_to_tex(tree, filename="tree.tex"):
         f.write("\\end{document}\n")
     print(f"Tree exported to {filename}")
 
-def print_menu():
-    print("Help       Show this message")
-    print("Print      Print the tree using In-order, Pre-order, Post-order")
-    #print("Remove     Remove elements of the tree")
-    #print("Delete     Delete whole tree")
-    #print("Export     Export the tree to tikzpicture")
-    #print("Rebalance  Rebalance the tree")
-    print("Exit       Exits the program (same as Ctrl+D)")
-    print()
-
+    
 
 def main():
     tree = BST()
 
+    # Default tree initialization
     values = input("Enter space-separated integers to initialize the tree: ")
     try:
         for key in map(int, values.split()):
@@ -90,23 +74,20 @@ def main():
     except ValueError:
         print("Invalid input. Please enter only integers.")
         return
-
-    print_menu()
-
+    
     while True:
         action = input("action> ").strip().lower()
 
         if action == "help":
-            print_menu()
+            print("XD")
 
         elif action == "print":
             print("In-order:  ", tree.inorder())
             print("Pre-order: ", tree.preorder())
             print("Post-order:", tree.postorder())
 
+
             #Zapisywanie do latex poprzez tickzpicture ale cos nie dziala
-            #nwm czy to cos z funkcja nie tak czy tutaj
-            #trzeba popatrzec
             #if tree.root:
             #    print("\\begin{tikzpicture}")
             #    print(tree.export(tree.root) + ";")
@@ -119,28 +100,6 @@ def main():
             #else:
             #    print("Tree is empty. Nothing to export.")
 
-
-
-        #elif action == "remove":
-        #
-#
-        #elif action == "delete":
-        #
-#
-        #elif action == "export":
-        #    if tree.root:
-        #        print(f"\\{export(tree.root)}")
-        #    else:
-        #        print("Tree is empty. Nothing to export.")
-#
-        #elif action == "rebalance":
-        #    
-#
-        #elif action == "exit":
-        #    
-#
-        #else:
-        #    print("Unknown action. Type 'Help' to see options.\n")
 
 
 if __name__ == "__main__":
