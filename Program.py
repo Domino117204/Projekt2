@@ -98,13 +98,13 @@ class BST:
 
     
     def rebalance(self):
-        # Faza 1: Tworzenie winoorośli
+        #Tworzenie winoorośli
         pseudo_root = BSTNode(None)
         pseudo_root.right = self.root
         tail = pseudo_root
         rest = tail.right
 
-        # Spłaszczanie drzewa (right-only chain)
+        #Spłaszczanie drzewa
         while rest:
             if rest.left:
                 temp = rest.left
@@ -116,15 +116,15 @@ class BST:
                 tail = rest
                 rest = rest.right
 
-        # Faza 2: Kompresowanie winoorośli do drzewa
+        #Kompresowanie winoorośli do drzewa
         n = 0
         tmp = pseudo_root.right
         while tmp:
             n += 1
             tmp = tmp.right
 
-        m = 2 ** (n.bit_length()) - 1  # Najbliższa potęga 2 minus 1
-        self._compress(pseudo_root, n - m)
+        m = 2 ** (n.bit_length())-1
+        self._compress(pseudo_root, n-m)
 
         m //= 2
         while m > 0:
@@ -147,29 +147,24 @@ class BST:
                 grandchild.left = child
             scanner = scanner.right
 
-
-
-    #trzeba dodac aby 1 node mial \node bo wstawia bez i trzeba recznie dopisac a tak juz smiga
-    #i czasami nachodza na siebie wartosci
-    def export(self, node, indent=" "):
+    #czasami nachodza na siebie wartosci
+    def export(self, node, indent=" ", is_first_node=True):
         if not node:
             return ""
 
-        result = f"{indent}node {{{node.key}}}"
+        result = f"{indent}\\node {{{node.key}}}" if is_first_node else f"{indent}node {{{node.key}}}"
 
-        # Obsługa dzieci w TikZ
         if node.left and node.right:
-            result += "\n" + indent + "    child { " + self.export(node.left, indent) + " }"
-            result += "\n" + indent + "    child { " + self.export(node.right, indent) + " }"
+            result += "\n" + indent + "    child { " + self.export(node.left, indent, False) + " }"
+            result += "\n" + indent + "    child { " + self.export(node.right, indent, False) + " }"
         elif node.left:
-            result += "\n" + indent + "    child { " + self.export(node.left, indent) + " }"
+            result += "\n" + indent + "    child { " + self.export(node.left, indent, False) + " }"
             result += "\n" + indent + "    child [missing]"
         elif node.right:
             result += "\n" + indent + "    child [missing]"
-            result += "\n" + indent + "    child { " + self.export(node.right, indent + "        ") + " }"
+            result += "\n" + indent + "    child { " + self.export(node.right, indent + "", False) + " }"
 
         return result
-
 
 
     def save_to_tex(self, filename="tree.tex"):
@@ -196,7 +191,7 @@ class BST:
             f.write("    \\end{tikzpicture}\n\n")
             f.write("\\end{document}\n")
 
-        print(f"Drzewo zostało wyeksportowane do pliku {filename}")
+        print(f"Export to {filename}")
 
 def print_menu():
     print("Help       Show this message")
@@ -250,7 +245,6 @@ def main():
             except ValueError:
                 print("Invalid input.")
 
-
         elif action == "delete":
             tree.delete()
             print("Tree succesfully removed")
@@ -263,7 +257,6 @@ def main():
                 tree.save_to_tex(filename)
             else:
                 print("Tree is empty. Nothing to export.")
-
 
         elif action == "rebalance":
             if tree.root:

@@ -11,19 +11,15 @@
         every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},
         edge from parent/.style={draw, -latex}
     ]
-\node {1}
-     child [missing]
-     child {          node {2}
-             child [missing]
-             child {                  node {3}
-                     child [missing]
-                     child {                          node {4}
-                             child [missing]
-                             child {                                  node {5}
-                                     child [missing]
-                                     child {                                          node {6}
-                                             child [missing]
-                                             child {                                                  node {7} } } } } } };
+ \node {11}
+     child {  node {5}
+     child {  node {2}
+     child {  node {1} }
+     child {  node {3} } }
+     child {  node {9}
+     child {  node {6} }
+     child {  node {10} } } }
+     child [missing];
     \end{tikzpicture}
 
 \end{document}
