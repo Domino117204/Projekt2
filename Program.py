@@ -204,17 +204,35 @@ def print_menu():
     print("Exit       Exits the program (same as Ctrl+D)")
     print()
 
+def load_from_file(tree, filename):
+    try:
+        with open(filename, 'r') as file:
+            values = file.read().strip().split()
+            for key in map(int, values):
+                tree.insert(key)
+        print(f"Values successfully loaded from {filename}")
+    except FileNotFoundError:
+        print(f"File {filename} not found.")
+    except ValueError:
+        print(f"Invalid data in file {filename}. Please ensure it contains integers.")
+
+
 
 def main():
     tree = BST()
 
-    values = input("Enter space separated integers to initialize the tree: ")
-    try:
-        for key in map(int, values.split()):
-            tree.insert(key)
-    except ValueError:
-        print("Invalid input.")
-        return
+    file_input = input("Do you want to load tree values from a file? (y/n): ").strip().lower()
+    if file_input == 'y':
+        filename = input("Enter the filename: ").strip()
+        load_from_file(tree, filename)
+    else:
+        values = input("Enter space separated integers to initialize the tree: ")
+        try:
+            for key in map(int, values.split()):
+                tree.insert(key)
+        except ValueError:
+            print("Invalid input.")
+            return
 
     print_menu()
 
