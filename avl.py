@@ -204,20 +204,29 @@ class AVLTree:
         scanner = root
         for _ in range(count):
             child = scanner.right
-            if not child:
+            if not child or not child.right:
                 break
             grandchild = child.right
+            child.right = grandchild.left
+            grandchild.left = child
             scanner.right = grandchild
-            child.right = grandchild.left if grandchild else None
-            if grandchild:
-                grandchild.left = child
-            scanner = scanner.right
+            scanner = grandchild
+        self._update_all_heights(self.root)
+
+    def _update_all_heights(self, node):
+        if node:
+            self._update_all_heights(node.left)
+            self._update_all_heights(node.right)
+            self.update_height(node)
+
 
 
     def export(self, node, indent=" ", is_first_node=True):
         if not node:
             return ""
+        
         result = f"{indent}\\node {{{node.key}}}" if is_first_node else f"{indent}node {{{node.key}}}"
+
         if node.left and node.right:
             result += "\n" + indent + "    child { " + self.export(node.left, indent, False) + " }"
             result += "\n" + indent + "    child { " + self.export(node.right, indent, False) + " }"
@@ -226,7 +235,7 @@ class AVLTree:
             result += "\n" + indent + "    child [missing]"
         elif node.right:
             result += "\n" + indent + "    child [missing]"
-            result += "\n" + indent + "    child { " + self.export(node.right, indent, False) + " }"
+            result += "\n" + indent + "    child { " + self.export(node.right, indent + "", False) + " }"
         return result
 
     def save_to_tex(self, filename="avltree.tex"):
