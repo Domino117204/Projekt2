@@ -3,27 +3,28 @@
 \usetikzlibrary{trees}
 
 \begin{document}
-	
-	\begin{tikzpicture}[ 
-		grow=down,
-		level distance=1.5cm,
-		every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},
-		edge from parent/.style={draw, -latex}
-		]
-		\node {10}
-		child [sibling distance=2.5cm] { 
-			\node {5}
-			child [sibling distance=1.5cm] { \node {3}; }
-			child [sibling distance=1.5cm] { 
-				\node {8}
-				child [sibling distance=1.5cm] { \node {7}; }
-			}
-		}
-		child [sibling distance=2.5cm] { 
-			\node {20}
-			child [sibling distance=1.5cm] { \node {15}; }
-			child [sibling distance=1.5cm] { \node {25}; }
-		}
-	\end{tikzpicture}
-	
+
+    \begin{tikzpicture}[
+        grow=down,
+        level 1/.style = {sibling distance=4cm},        level 2/.style = {sibling distance=2cm},        level 3/.style = {sibling distance=1cm},        level 4/.style = {sibling distance=0.5cm},        level distance=1.5cm,
+        every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},
+        edge from parent/.style={draw, -latex}
+    ]
+ \node {10}
+     child {  node {4}
+     child {  node {2}
+     child {  node {1} }
+     child {  node {3} } }
+     child {  node {6}
+     child {  node {5} }
+     child {  node {8} } } }
+     child {  node {52}
+     child {  node {19}
+     child {  node {16} }
+     child {  node {34} } }
+     child {  node {85}
+     child {  node {77} }
+     child {  node {87} } } };
+    \end{tikzpicture}
+
 \end{document}

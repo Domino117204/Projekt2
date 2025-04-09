@@ -358,7 +358,7 @@ class AVL:
         self._delete(node.left)
         self._delete(node.right)
         print(f"Deleting: {node.key}")
-
+        
     def rebalance(self):
         pseudo_root = AVLNode(None)
         pseudo_root.right = self.root
@@ -395,6 +395,7 @@ class AVL:
         self.root = pseudo_root.right
         print("Tree rebalanced using DSW algorithm.")
 
+
     def _compress(self, root, count):
         scanner = root
         for _ in range(count):
@@ -412,7 +413,9 @@ class AVL:
     def export(self, node, indent=" ", is_first_node=True):
         if not node:
             return ""
+        
         result = f"{indent}\\node {{{node.key}}}" if is_first_node else f"{indent}node {{{node.key}}}"
+
         if node.left and node.right:
             result += "\n" + indent + "    child { " + self.export(node.left, indent, False) + " }"
             result += "\n" + indent + "    child { " + self.export(node.right, indent, False) + " }"
@@ -421,7 +424,7 @@ class AVL:
             result += "\n" + indent + "    child [missing]"
         elif node.right:
             result += "\n" + indent + "    child [missing]"
-            result += "\n" + indent + "    child { " + self.export(node.right, indent, False) + " }"
+            result += "\n" + indent + "    child { " + self.export(node.right, indent + "", False) + " }"
         return result
 
     def save_to_tex(self, filename="avltree.tex"):
@@ -432,8 +435,11 @@ class AVL:
             f.write("\\begin{document}\n\n")
             f.write("    \\begin{tikzpicture}[\n")
             f.write("        grow=down,\n")
+            f.write("        level 1/.style = {sibling distance=4cm},")
+            f.write("        level 2/.style = {sibling distance=2cm},")
+            f.write("        level 3/.style = {sibling distance=1cm},")
+            f.write("        level 4/.style = {sibling distance=0.5cm},")
             f.write("        level distance=1.5cm,\n")
-            f.write("        sibling distance=2.5cm,\n")
             f.write("        every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},\n")
             f.write("        edge from parent/.style={draw, -latex}\n")
             f.write("    ]\n")
