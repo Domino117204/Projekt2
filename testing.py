@@ -95,15 +95,16 @@ class BST:
         self._delete(node.left)
         self._delete(node.right)
         print(f"Deleting: {node.key}")
+
     
     def rebalance(self):
-        # Tworzenie pseudo-korzenia
+    # Tworzenie winorośli
         pseudo_root = BSTNode(None)
         pseudo_root.right = self.root
         tail = pseudo_root
         rest = tail.right
 
-        # Spłaszczanie drzewa
+        # Spłaszczanie drzewa (tworzenie winorośli)
         while rest:
             if rest.left:
                 temp = rest.left
@@ -115,7 +116,7 @@ class BST:
                 tail = rest
                 rest = rest.right
 
-        # Kompresowanie drzewa
+        # Kompresowanie winorośli do drzewa
         n = 0
         tmp = pseudo_root.right
         while tmp:
@@ -135,17 +136,16 @@ class BST:
 
     def _compress(self, root, count):
         scanner = root
-        for i in range(count):
+        for _ in range(count):
             child = scanner.right
-            if not child:
+            if child is None or child.right is None:
                 break
             grandchild = child.right
-            if not grandchild:
-                break
-            scanner.right = grandchild
             child.right = grandchild.left
             grandchild.left = child
-            scanner = scanner.right
+            scanner.right = grandchild
+            scanner = grandchild
+
 
     def export(self, node, indent=" ", is_first_node=True):
         if not node:
@@ -409,6 +409,8 @@ class AVL:
             scanner.right = grandchild
             scanner = grandchild
 
+
+
     def export(self, node, indent=" ", is_first_node=True):
         if not node:
             return ""
@@ -464,6 +466,7 @@ def print_menu(tree_type):
     print("Delete     Delete whole tree")
     print("Export     Export the tree to tikzpicture")
     print("Rebalance  Rebalance the tree")
+    print("Change     Change a tree")
     print("Exit       Exits the program (same as Ctrl+D)")
     print()
 
@@ -543,7 +546,7 @@ def main():
             try:
                 for val in map(int, vals.split()):
                     tree.remove(val)
-                    print(f"remove {val}")
+                    print(f"remove {val} (if it existed).")
             except ValueError:
                 print("Invalid input.")
 
