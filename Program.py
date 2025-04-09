@@ -147,7 +147,6 @@ class BST:
                 grandchild.left = child
             scanner = scanner.right
 
-    #czasami nachodza na siebie wartosci
     def export(self, node, indent=" ", is_first_node=True):
         if not node:
             return ""
@@ -175,8 +174,11 @@ class BST:
             f.write("\\begin{document}\n\n")
             f.write("    \\begin{tikzpicture}[\n")
             f.write("        grow=down,\n")
+            f.write("        level 1/.style = {sibling distance=4cm},")
+            f.write("        level 2/.style = {sibling distance=2cm},")
+            f.write("        level 3/.style = {sibling distance=1cm},")
+            f.write("        level 4/.style = {sibling distance=0.5cm},")
             f.write("        level distance=1.5cm,\n")
-            f.write("        sibling distance=2.5cm,\n")
             f.write("        every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},\n")
             f.write("        edge from parent/.style={draw, -latex}\n")
             f.write("    ]\n")
@@ -509,12 +511,12 @@ def main():
     file_input = input("Do you want to load tree values from a file? (y/n): ").strip().lower()
     if file_input == 'y':
         filename = input("Enter the filename: ").strip()
-        load_from_file(tree, tree_type, filename)
+        load_from_file(tree, filename)
     else:
         values = input("Enter space separated integers to initialize the tree: ")
         try:
-            for key in map(int, values.split()):
-                tree.insert(key)
+            data = sorted(set(map(int, values.split())))
+            tree.build_from_sorted(data)
         except ValueError:
             print("Invalid input.")
             return
