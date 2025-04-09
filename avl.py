@@ -163,6 +163,57 @@ class AVLTree:
         self._delete(node.right)
         print(f"Deleting: {node.key}")
 
+    def rebalance(self):
+        pseudo_root = AVLNode(None)
+        pseudo_root.right = self.root
+        tail = pseudo_root
+        rest = tail.right
+
+        # Faza 1: Tworzenie "winoorośli" (vine)
+        while rest:
+            if rest.left:
+                temp = rest.left
+                rest.left = temp.right
+                temp.right = rest
+                rest = temp
+                tail.right = temp
+            else:
+                tail = rest
+                rest = rest.right
+
+        # Faza 2: Kompresja winoorośli do zrównoważonego drzewa
+        n = 0
+        tmp = pseudo_root.right
+        while tmp:
+            n += 1
+            tmp = tmp.right
+
+        m = 2 ** (n.bit_length()) - 1
+        self._compress(pseudo_root, n - m)
+
+        m //= 2
+        while m > 0:
+            self._compress(pseudo_root, m)
+            m //= 2
+
+        self.root = pseudo_root.right
+        print("Tree rebalanced using DSW algorithm.")
+
+
+    def _compress(self, root, count):
+        scanner = root
+        for _ in range(count):
+            child = scanner.right
+            if not child:
+                break
+            grandchild = child.right
+            scanner.right = grandchild
+            child.right = grandchild.left if grandchild else None
+            if grandchild:
+                grandchild.left = child
+            scanner = scanner.right
+
+
     def export(self, node, indent=" ", is_first_node=True):
         if not node:
             return ""
@@ -208,6 +259,7 @@ def print_menu():
     print("Remove     Remove elements of the tree")
     print("Delete     Delete whole tree")
     print("Export     Export the tree to tikzpicture")
+    print("Rebalance  Rebalance the tree")
     print("Exit       Exits the program (same as Ctrl+D)")
     print()
 
@@ -281,6 +333,11 @@ def main():
                 tree.save_to_tex(filename)
             else:
                 print("Tree is empty. Nothing to export.")
+        elif action == "rebalance":
+            if tree.root:
+                tree.rebalance()
+            else:
+                print("Tree is empty. Nothing to rebalance.")
 
         elif action == "exit":
             break

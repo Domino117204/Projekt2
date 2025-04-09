@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+\begin{document}
+
+    \begin{tikzpicture}[
+        grow=down,
+        level distance=1.5cm,
+        sibling distance=2.5cm,
+        every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},
+        edge from parent/.style={draw, -latex}
+    ]
+ \node {451}
+     child {  node {51}
+     child {  node {11}
+     child {  node {8} }
+     child {  node {12} } }
+     child {  node {235}
+     child {  node {89} }
+     child {  node {441} } } }
+     child [missing];
+    \end{tikzpicture}
+
+\end{document}
