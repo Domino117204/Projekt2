@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.19)  9 APR 2025 18:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.25)  9 APR 2025 19:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./tree.tex
 (tree.tex
-LaTeX2e <2024-11-01>
-L3 programming layer <2024-11-02>
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
 (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
 (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
@@ -425,21 +425,21 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 
 {C:/Users/domin/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (tree.aux)
  ***********
-LaTeX2e <2024-11-01>
-L3 programming layer <2024-11-02>
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 11873 strings out of 473682
- 252850 string characters out of 5719215
- 607368 words of memory out of 5000000
- 34790 multiletter control sequences out of 15000+600000
- 558069 words of font info for 36 fonts, out of 8000000 for 9000
+ 11883 strings out of 473523
+ 253079 string characters out of 5714630
+ 610052 words of memory out of 5000000
+ 34944 multiletter control sequences out of 15000+600000
+ 558837 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,10n,107p,409b,1011s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,10n,107p,409b,1012s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmr10.pfb>
-Output written on tree.pdf (1 page, 11583 bytes).
+Output written on tree.pdf (1 page, 12299 bytes).
 PDF statistics:
  14 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

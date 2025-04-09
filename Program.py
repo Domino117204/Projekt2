@@ -95,16 +95,15 @@ class BST:
         self._delete(node.left)
         self._delete(node.right)
         print(f"Deleting: {node.key}")
-
     
     def rebalance(self):
-        #Tworzenie winoorośli
+        # Tworzenie pseudo-korzenia
         pseudo_root = BSTNode(None)
         pseudo_root.right = self.root
         tail = pseudo_root
         rest = tail.right
 
-        #Spłaszczanie drzewa
+        # Spłaszczanie drzewa
         while rest:
             if rest.left:
                 temp = rest.left
@@ -116,15 +115,15 @@ class BST:
                 tail = rest
                 rest = rest.right
 
-        #Kompresowanie winoorośli do drzewa
+        # Kompresowanie drzewa
         n = 0
         tmp = pseudo_root.right
         while tmp:
             n += 1
             tmp = tmp.right
 
-        m = 2 ** (n.bit_length())-1
-        self._compress(pseudo_root, n-m)
+        m = 2 ** (n.bit_length() - 1) - 1
+        self._compress(pseudo_root, n - m)
 
         m //= 2
         while m > 0:
@@ -141,7 +140,7 @@ class BST:
             if not child:
                 break
             grandchild = child.right
-            scanner.right = grandchild
+            scanner.right = child.right
             child.right = grandchild.left if grandchild else None
             if grandchild:
                 grandchild.left = child
@@ -547,7 +546,7 @@ def main():
             try:
                 for val in map(int, vals.split()):
                     tree.remove(val)
-                    print(f"remove {val} (if it existed).")
+                    print(f"remove {val}")
             except ValueError:
                 print("Invalid input.")
 
