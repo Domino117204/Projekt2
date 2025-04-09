@@ -3,21 +3,27 @@
 \usetikzlibrary{trees}
 
 \begin{document}
-
-    \begin{tikzpicture}[
-        grow=down,
-        level distance=1.5cm,
-        sibling distance=2.5cm,
-        every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},
-        edge from parent/.style={draw, -latex}
-    ]
- \node {4}
-     child {  node {2}
-     child {  node {1} }
-     child {  node {3} } }
-     child {  node {6}
-     child {  node {5} }
-     child {  node {7} } };
-    \end{tikzpicture}
-
+	
+	\begin{tikzpicture}[ 
+		grow=down,
+		level distance=1.5cm,
+		every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},
+		edge from parent/.style={draw, -latex}
+		]
+		\node {10}
+		child [sibling distance=2.5cm] { 
+			\node {5}
+			child [sibling distance=1.5cm] { \node {3}; }
+			child [sibling distance=1.5cm] { 
+				\node {8}
+				child [sibling distance=1.5cm] { \node {7}; }
+			}
+		}
+		child [sibling distance=2.5cm] { 
+			\node {20}
+			child [sibling distance=1.5cm] { \node {15}; }
+			child [sibling distance=1.5cm] { \node {25}; }
+		}
+	\end{tikzpicture}
+	
 \end{document}
