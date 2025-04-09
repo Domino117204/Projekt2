@@ -135,15 +135,16 @@ class BST:
 
     def _compress(self, root, count):
         scanner = root
-        for _ in range(count):
+        for i in range(count):
             child = scanner.right
             if not child:
                 break
             grandchild = child.right
-            scanner.right = child.right
-            child.right = grandchild.left if grandchild else None
-            if grandchild:
-                grandchild.left = child
+            if not grandchild:
+                break
+            scanner.right = grandchild
+            child.right = grandchild.left
+            grandchild.left = child
             scanner = scanner.right
 
     def export(self, node, indent=" ", is_first_node=True):
@@ -466,7 +467,6 @@ def print_menu(tree_type):
     print("Delete     Delete whole tree")
     print("Export     Export the tree to tikzpicture")
     print("Rebalance  Rebalance the tree")
-    print("Change     Change a tree")
     print("Exit       Exits the program (same as Ctrl+D)")
     print()
 
