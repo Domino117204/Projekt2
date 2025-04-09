@@ -511,12 +511,13 @@ def main():
     file_input = input("Do you want to load tree values from a file? (y/n): ").strip().lower()
     if file_input == 'y':
         filename = input("Enter the filename: ").strip()
-        load_from_file(tree, filename)
+        load_from_file(tree, tree_type, filename)
     else:
         values = input("Enter space separated integers to initialize the tree: ")
+        values = set(values.split())
         try:
-            data = sorted(set(map(int, values.split())))
-            tree.build_from_sorted(data)
+            for key in map(int, values):
+                tree.insert(key)
         except ValueError:
             print("Invalid input.")
             return
