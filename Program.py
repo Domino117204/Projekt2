@@ -387,7 +387,7 @@ class AVL:
             n += 1
             tmp = tmp.right
 
-        m = 2 ** (n.bit_length()) - 1
+        m = 2 ** (n.bit_length() - 1) - 1
         self._compress(pseudo_root, n - m)
 
         m //= 2
