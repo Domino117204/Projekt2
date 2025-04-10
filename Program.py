@@ -4,7 +4,6 @@ class BSTNode:
         self.left = None
         self.right = None
 
-
 class BST:
     def __init__(self):
         self.root = None
@@ -92,9 +91,11 @@ class BST:
     def _delete(self, node):
         if not node:
             return
+
         self._delete(node.left)
         self._delete(node.right)
         print(f"Deleting: {node.key}")
+        return None
     
     def rebalance(self):
         # Tworzenie pseudo-korzenia
@@ -367,7 +368,7 @@ class AVL:
         tail = pseudo_root
         rest = tail.right
 
-        # Faza 1: Tworzenie "winoorośli" (vine)
+        #Tworzenie winoorośli
         while rest:
             if rest.left:
                 temp = rest.left
@@ -379,7 +380,7 @@ class AVL:
                 tail = rest
                 rest = rest.right
 
-        # Faza 2: Kompresja winoorośli do zrównoważonego drzewa
+        #Kompresja winoorośli do zrównoważonego drzewa
         n = 0
         tmp = pseudo_root.right
         while tmp:
