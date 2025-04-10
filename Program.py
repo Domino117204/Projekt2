@@ -510,7 +510,7 @@ def main():
         load_from_file(tree, tree_type, filename)
     else:
         values = input("Enter space separated integers to initialize the tree: ")
-        values = set(values.split())
+        values = (values.split())
         try:
             for key in map(int, values):
                 tree.insert(key)
