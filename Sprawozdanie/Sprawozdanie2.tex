@@ -270,9 +270,12 @@ class AVL:
 					every axis plot post/.style={very thick},
 					/tikz/plot label/.style={black, anchor=west}
 					]
-					\addplot[blue, dashed, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_szukania_bst.csv};
-					\addplot[red, dotted, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_szukania_avl.csv};
-					\legend{BST, AVL}
+					
+					\addplot[blue, dashed, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_min_bst.csv};
+					\addplot[green, dashed, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_max_bst.csv};
+					\addplot[yellow, dashed, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_min_avl.csv};
+					\addplot[red, dotted, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_max_avl.csv};
+					\legend{BST min, BST max, AVL min, AVL max}
 				\end{axis}
 				\begin{axis}[%
 					title={Równoważenie BST}, 
