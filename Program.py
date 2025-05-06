@@ -210,16 +210,16 @@ class AVL:
         self.root = None
 
     def build_from_sorted(self, values):
-        def build(vals):
-            if not vals:
+        def build(l, r):
+            if l > r:
                 return None
-            mid = len(vals) // 2 # mediana
-            node = AVLNode(vals[mid])
-            node.left = build(vals[:mid])
-            node.right = build(vals[mid+1:])
+            mid = (l + r) // 2
+            node = AVLNode(values[mid])
+            node.left = build(l, mid - 1)
+            node.right = build(mid + 1, r)
             node.height = 1 + max(self.get_height(node.left), self.get_height(node.right))
             return node
-        self.root = build(values)
+        self.root = build(0, len(values) - 1)
 
     def get_height(self, node):
         return node.height if node else 0
