@@ -265,17 +265,15 @@ class AVL:
 				\begin{axis}[%
 					title={Wyszukanie Min/Max}, 
 					name=plotB, at=(plotA.right of south east), anchor=left of south west,
-					xlabel={Rozmiar instancji}, ylabel={Czas(s)}, legend pos=north west,
+					xlabel={Rozmiar instancji}, ylabel={Czas(ms)}, legend pos=north west,
 					xmode = log, log basis x={2},
 					every axis plot post/.style={very thick},
 					/tikz/plot label/.style={black, anchor=west}
 					]
 					
-					\addplot[blue, dashed, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_min_bst.csv};
-					\addplot[green, dashed, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_max_bst.csv};
-					\addplot[yellow, dashed, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_min_avl.csv};
-					\addplot[red, dotted, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_max_avl.csv};
-					\legend{BST min, BST max, AVL min, AVL max}
+					\addplot[blue, dashed, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_minmax_bst.csv};
+					\addplot[red, dotted, smooth] table[x=InputSize,y=Time,meta=Algorithm,col sep=comma] {results/czas_minmax_avl.csv};
+					\legend{BST, AVL}
 				\end{axis}
 				\begin{axis}[%
 					title={Równoważenie BST}, 

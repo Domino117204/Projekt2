@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.25)  5 MAY 2025 12:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.25)  6 MAY 2025 10:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -903,44 +903,36 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 PGFPlots: reading {results/czas_tworzenia_bst.csv}
 PGFPlots: reading {results/czas_tworzenia_avl.csv}
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-04.
+02.
  (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-04.
+02.
 
 (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-304.
+302.
 
 (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-304.
+302.
 
 (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 304.
+(Font)              <10> on input line 302.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 304.
+(Font)              <7> on input line 302.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 304.
-PGFPlots: reading {results/czas_min_bst.csv}
-PGFPlots: reading {results/czas_max_bst.csv}
-PGFPlots: reading {results/czas_min_avl.csv}
-PGFPlots: reading {results/czas_max_avl.csv}
-
-
-Package pgfplots Warning: Axis range for axis y is approximately empty; enlargi
-ng it (it is [0.0:0.0]) on input line 304.
-
- [warning /pgfplots/warning/approx empty range enlarged]
+(Font)              <5> on input line 302.
+PGFPlots: reading {results/czas_minmax_bst.csv}
+PGFPlots: reading {results/czas_minmax_avl.csv}
 PGFPlots: reading {results/czas_balansowania_bst.csv}
 PGFPlots: reading {results/czas_inorder_bst.csv}
 PGFPlots: reading {results/czas_inorder_avl.csv}
@@ -948,7 +940,7 @@ PGFPlots: reading {results/czas_inorder_avl.csv}
 
 File: Image/PP-PUT-WORD.png Graphic file (type png)
 <use Image/PP-PUT-WORD.png>
-Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 308.
+Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 306.
 (pdftex.def)             Requested size: 284.52756pt x 59.91786pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -958,8 +950,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-51.5179pt}.
 
 [4{C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C
-:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C
-:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}]
+:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C
+:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
 (Sprawozdanie2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
@@ -967,10 +959,10 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 28448 strings out of 473523
- 717646 string characters out of 5714630
+ 28439 strings out of 473523
+ 717527 string characters out of 5714630
  1957451 words of memory out of 5000000
- 51234 multiletter control sequences out of 15000+600000
+ 51229 multiletter control sequences out of 15000+600000
  607992 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,21n,101p,732b,2231s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -983,11 +975,11 @@ b><C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 :/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C
 :/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb>
 <C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-<C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-
-Output written on Sprawozdanie2.pdf (4 pages, 296619 bytes).
+<C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><
+C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+Output written on Sprawozdanie2.pdf (4 pages, 300638 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
+ 85 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

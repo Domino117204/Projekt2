@@ -66,6 +66,7 @@ class BST:
         node.right = self._build_balanced(nodes[mid+1:])
         return node
 
+
 class AVLNode:
     def __init__(self, key):
         self.key = key
@@ -156,94 +157,66 @@ def benchmark(n, repeats=4):
     random.shuffle(values)
 
     bst_insert_times = []
+    avl_insert_times = []
+    inorder_bst_times = []
+    inorder_avl_times = []
+    balance_bst_times = []
+    minmax_bst_times = []
+    minmax_avl_times = []
+
     for _ in range(repeats):
         bst = BST()
+        avl = AVL()
+
         t1 = time.perf_counter()
         for v in values:
             bst.insert(v)
         bst_insert_times.append(time.perf_counter() - t1)
-    avg_bst_insert = sum(bst_insert_times) / repeats
 
-    bst = BST()
-    for v in values:
-        bst.insert(v)
-
-    min_times = []
-    max_times = []
-    for _ in range(repeats):
-        t1 = time.perf_counter()
-        bst.find_min()
         t2 = time.perf_counter()
-        min_times.append(t2 - t1)
-
-        t3 = time.perf_counter()
-        bst.find_max()
-        t4 = time.perf_counter()
-        max_times.append(t4 - t3)
-
-    avg_bst_min = sum(min_times) / repeats
-    avg_bst_max = sum(max_times) / repeats
-
-    bst_inorder_times = []
-    for _ in range(repeats):
-        t1 = time.perf_counter()
-        bst.inorder()
-        bst_inorder_times.append(time.perf_counter() - t1)
-    avg_bst_inorder = sum(bst_inorder_times) / repeats
-
-    bst_balance_times = []
-    for _ in range(repeats):
-        t1 = time.perf_counter()
-        bst.balance()
-        bst_balance_times.append(time.perf_counter() - t1)
-    avg_bst_balance = sum(bst_balance_times) / repeats
-
-    avl_insert_times = []
-    for _ in range(repeats):
-        avl = AVL()
-        t1 = time.perf_counter()
         for v in values:
             avl.insert(v)
-        avl_insert_times.append(time.perf_counter() - t1)
-    avg_avl_insert = sum(avl_insert_times) / repeats
+        avl_insert_times.append(time.perf_counter() - t2)
 
+    bst = BST()
     avl = AVL()
     for v in values:
+        bst.insert(v)
         avl.insert(v)
 
-    avl_min_times = []
-    avl_max_times = []
     for _ in range(repeats):
-        t1 = time.perf_counter()
+        t1 = time.perf_counter() * 1000  
+        bst.find_min()
+        bst.find_max()
+        t2 = time.perf_counter() * 1000
+        minmax_bst_times.append((t2 - t1))
+
+        t3 = time.perf_counter() * 1000
         avl.find_min()
-        t2 = time.perf_counter()
-        avl_min_times.append(t2 - t1)
-
-        t3 = time.perf_counter()
         avl.find_max()
-        t4 = time.perf_counter()
-        avl_max_times.append(t4 - t3)
+        t4 = time.perf_counter() * 1000
+        minmax_avl_times.append((t4 - t3))
 
-    avg_avl_min = sum(avl_min_times) / repeats
-    avg_avl_max = sum(avl_max_times) / repeats
+        t5 = time.perf_counter()
+        bst.inorder()
+        inorder_bst_times.append((time.perf_counter() - t5))
 
-    avl_inorder_times = []
-    for _ in range(repeats):
-        t1 = time.perf_counter()
+        t6 = time.perf_counter()
         avl.inorder()
-        avl_inorder_times.append(time.perf_counter() - t1)
-    avg_avl_inorder = sum(avl_inorder_times) / repeats
+        inorder_avl_times.append((time.perf_counter() - t6))
+
+        t7 = time.perf_counter()
+        bst.balance()
+        balance_bst_times.append((time.perf_counter() - t7))
 
     return (
-        avg_bst_insert,
-        avg_avl_insert,
-        avg_bst_min,
-        avg_bst_max,
-        avg_avl_min,
-        avg_avl_max,
-        avg_bst_inorder,
-        avg_avl_inorder,
-        avg_bst_balance
+        sum(bst_insert_times) / repeats,
+        sum(avl_insert_times) / repeats,
+        sum(minmax_bst_times) / repeats,  
+        sum(minmax_avl_times) / repeats,  
+        sum(inorder_bst_times) / repeats,  
+        sum(inorder_avl_times) / repeats, 
+        sum(balance_bst_times) / repeats   
     )
 
 
@@ -260,35 +233,29 @@ def save_csv(filename, algorithm, n_list, times):
 def main():
     Ns = [2**11, 2**12, 2**13, 2**14, 2**15, 2**16, 2**17, 2**18, 2**19]
     tworz_bst, tworz_avl = [], []
-    min_bst, max_bst = [], []
-    min_avl, max_avl = [], []
+    minmax_bst, minmax_avl = [], []
     inorder_bst, inorder_avl = [], []
     balans_bst = []
 
     for n in Ns:
         print(f"Benchmark dla n = {n}")
-        b_ins, a_ins, b_min, b_max, a_min, a_max, b_inor, a_inor, b_bal = benchmark(n)
+        b_ins, a_ins, b_minmax, a_minmax, b_inor, a_inor, b_bal = benchmark(n)
         tworz_bst.append(b_ins)
         tworz_avl.append(a_ins)
-        min_bst.append(b_min)
-        max_bst.append(b_max)
-        min_avl.append(a_min)
-        max_avl.append(a_max)
+        minmax_bst.append(b_minmax)
+        minmax_avl.append(a_minmax)
         inorder_bst.append(b_inor)
         inorder_avl.append(a_inor)
         balans_bst.append(b_bal)
 
     save_csv("czas_tworzenia_bst.csv", "BST", Ns, tworz_bst)
-    save_csv("czas_min_bst.csv", "BST_find_min", Ns, min_bst)
-    save_csv("czas_max_bst.csv", "BST_find_max", Ns, max_bst)
+    save_csv("czas_minmax_bst.csv", "BST", Ns, minmax_bst)
     save_csv("czas_inorder_bst.csv", "BST", Ns, inorder_bst)
     save_csv("czas_balansowania_bst.csv", "BST", Ns, balans_bst)
 
     save_csv("czas_tworzenia_avl.csv", "AVL", Ns, tworz_avl)
-    save_csv("czas_min_avl.csv", "AVL_find_min", Ns, min_avl)
-    save_csv("czas_max_avl.csv", "AVL_find_max", Ns, max_avl)
+    save_csv("czas_minmax_avl.csv", "AVL", Ns, minmax_avl)
     save_csv("czas_inorder_avl.csv", "AVL", Ns, inorder_avl)
-
 
 if __name__ == "__main__":
     main()
