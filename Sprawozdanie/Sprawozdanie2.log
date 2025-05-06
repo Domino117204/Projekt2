@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.25)  6 MAY 2025 10:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.25)  6 MAY 2025 11:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -842,12 +842,12 @@ Package pdftex.def Info: Image/PP-PUT-LOGO.png  used on input line 81.
 n/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./Image/PP-PUT-L
 OGO.png>]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-34.
+67.
 
 (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
@@ -855,7 +855,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 134--135
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-36.
+69.
 
 (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -864,7 +864,7 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 <Image/PP-PUT-WORD.png, id=15, 455.301pt x 95.8782pt>
 File: Image/PP-PUT-WORD.png Graphic file (type png)
 <use Image/PP-PUT-WORD.png>
-Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 163.
+Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 196.
 (pdftex.def)             Requested size: 284.52756pt x 59.91786pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -874,24 +874,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-51.5179pt}.
 
 [2 <./Image/PP-PUT-WORD.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 240--242
 
  []
 
 
-Overfull \vbox (371.55974pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (371.55974pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (371.55974pt too high) has occurred while \output is active []
 
 File: Image/PP-PUT-WORD.png Graphic file (type png)
 <use Image/PP-PUT-WORD.png>
-Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 244.
+Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 314.
 (pdftex.def)             Requested size: 284.52756pt x 59.91786pt.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 63.5179pt, for example:
@@ -903,34 +895,34 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 PGFPlots: reading {results/czas_tworzenia_bst.csv}
 PGFPlots: reading {results/czas_tworzenia_avl.csv}
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-02.
+72.
  (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-02.
+72.
 
 (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-302.
+372.
 
 (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-302.
+372.
 
 (C:\Users\domin\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 302.
+(Font)              <10> on input line 372.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 302.
+(Font)              <7> on input line 372.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 302.
+(Font)              <5> on input line 372.
 PGFPlots: reading {results/czas_minmax_bst.csv}
 PGFPlots: reading {results/czas_minmax_avl.csv}
 PGFPlots: reading {results/czas_balansowania_bst.csv}
@@ -940,7 +932,7 @@ PGFPlots: reading {results/czas_inorder_avl.csv}
 
 File: Image/PP-PUT-WORD.png Graphic file (type png)
 <use Image/PP-PUT-WORD.png>
-Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 306.
+Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 376.
 (pdftex.def)             Requested size: 284.52756pt x 59.91786pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -959,11 +951,11 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 28439 strings out of 473523
- 717527 string characters out of 5714630
- 1957451 words of memory out of 5000000
- 51229 multiletter control sequences out of 15000+600000
- 607992 words of font info for 60 fonts, out of 8000000 for 9000
+ 28673 strings out of 473523
+ 723084 string characters out of 5714630
+ 1821441 words of memory out of 5000000
+ 51461 multiletter control sequences out of 15000+600000
+ 611305 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,21n,101p,732b,2231s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
@@ -976,10 +968,11 @@ b><C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 :/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb>
 <C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
 <C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><
-C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Sprawozdanie2.pdf (4 pages, 300638 bytes).
+C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><
+C:/Users/domin/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
+Output written on Sprawozdanie2.pdf (4 pages, 329777 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 90 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

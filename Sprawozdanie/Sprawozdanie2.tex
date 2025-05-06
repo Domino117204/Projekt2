@@ -128,8 +128,41 @@
 	\section*{\textcolor{blue}{Tworzenie drzewa BST}}
 	\begin{multicols}{2}
 		\noindent 
-		Klasa \textit{BSTNode} reprezentuje pojedynczy węzeł drzewa BST. Składa się z klucza \textit{key} i odnośników do lewego i prawego potomka. \\ Klasa \textit{BST} reprezentuje drzewo BST. Korzeń drzewa jest zapisany w \textit{root}. Funkcja \textit{insert} służy do dodawania nowych węzłów, wykorzystuje do tego \textit{\_insert}, które rekurencyjnie wstawia węzeł po lewej lub prawej stronie, zależnie od jego wartości.
-		\noindent 
+		Klasa \textit{BSTNode} reprezentuje pojedynczy węzeł drzewa BST. Składa się z klucza \textit{key} i odnośników do lewego i prawego potomka. \\ Klasa \textit{BST} reprezentuje drzewo BST. Korzeń drzewa jest zapisany w \textit{root}. Funkcja \textit{insert} służy do dodawania nowych węzłów, wykorzystuje do tego \textit{\_insert}, które rekurencyjnie wstawia węzeł po lewej lub prawej stronie, zależnie od jego wartości. 
+		\vspace*{0.4cm}
+		\noindent \\Poniżej drzewo BST utworzone z liczb: 5 8 2 5 10 24 15 11 7 1 2
+		
+		\noindent Kolorem czerwonym został zaznaczony korzeń \\
+		Kolorem niebieskim węzły wewnętrzne \\
+		Kolorem zielonym liście
+		
+		\vspace*{1cm}
+		
+		\begin{tikzpicture}[
+			grow=down,
+			level 1/.style = {sibling distance=4cm},
+			level 2/.style = {sibling distance=2cm},
+			level 3/.style = {sibling distance=1cm},
+			level 4/.style = {sibling distance=0.5cm},
+			level distance=1.5cm,
+			every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},
+			edge from parent/.style={draw, -latex}
+			]
+			\node[fill=red!50] {5} 
+			child { node[fill=blue!50] {2} 
+				child { node[fill=green!50] {1} } 
+				child [missing] }
+			child { node[fill=blue!50] {8} 
+				child { node[fill=green!50] {7} } 
+				child { node[fill=blue!50] {10} 
+					child [missing] 
+					child { node[fill=blue!50] {24} 
+						child { node[fill=blue!50] {15} 
+							child { node[fill=green!50] {11} }
+							child [missing] } 
+						child [missing] } } };
+		\end{tikzpicture} 
+		
 		\begin{tcolorbox}[colback=black,colframe=gray!50!,arc=3mm,boxrule=0pt,left=0pt,right=0pt,width=\linewidth]
 			\textcolor{white}{\textbf{\textsf{Terminal}}}\\
 			
@@ -166,10 +199,46 @@ class BST:
 	\begin{multicols}{2}
 		\noindent tekst
 		
-		\noindent 
-		\begin{tcolorbox}[colback=black,colframe=gray!50!,arc=3mm,boxrule=0pt,left=0pt,right=0pt,width=\linewidth]
-			\textcolor{white}{\textbf{\textsf{Terminal}}}\\
+		\noindent Poniżej drzewo AVL utworzone z liczb: 6 2 4 5 3 10 9 8 17 21 20 25 12 11 1 2
+		
+		\noindent Kolorem czerwonym został zaznaczony korzeń \\
+		Kolorem niebieskim węzły wewnętrzne \\
+		Kolorem zielonym liście
 			
+		\vspace*{1cm}
+		
+		\begin{tikzpicture}[
+			grow=down,
+			level 1/.style = {sibling distance=4cm},
+			level 2/.style = {sibling distance=2cm},
+			level 3/.style = {sibling distance=1cm},
+			level 4/.style = {sibling distance=0.5cm},
+			level distance=1.5cm,
+			every node/.style={circle, draw, minimum size=7mm, inner sep=2pt},
+			edge from parent/.style={draw, -latex}
+			]
+			\node[fill=red!50] {9} 
+			child { node[fill=blue!50] {4} 
+				child { node[fill=blue!50] {2} 
+					child { node[fill=green!50] {1} }
+					child { node[fill=green!50] {3} } }
+				child { node[fill=blue!50] {6} 
+					child { node[fill=green!50] {5} }
+					child { node[fill=green!50] {8} } } }
+			child { node[fill=blue!50] {17} 
+				child { node[fill=blue!50] {11} 
+					child { node[fill=green!50] {10} }
+					child { node[fill=green!50] {12} } }
+				child { node[fill=blue!50] {21} 
+					child { node[fill=green!50] {20} }
+					child { node[fill=green!50] {25} } } };
+			\end{tikzpicture}
+		
+		\noindent 
+		
+		\begin{tcolorbox}[colback=black,colframe=gray!50!,arc=3mm,boxrule=0pt,left=0pt,right=0pt,width=\linewidth, sharp corners=south]
+			\textcolor{white}{\textbf{\textsf{Terminal}}}\\
+			\scriptsize % mniejsza czcionka
 			\begin{lstlisting}[language=Python]
 class AVLNode:
 	def __init__(self, key):
@@ -177,21 +246,21 @@ class AVLNode:
 		self.height = 1
 		self.left = None
 		self.right = None
-
+	
 class AVL:
 	def __init__(self):
 		self.root = None
 	def build_from_sorted(self, values):
 		def build(vals):
-		if not vals:
-			return None
-		mid = len(vals) // 2
-		node = AVLNode(vals[mid])
-		node.left = build(vals[:mid])
-		node.right = build(vals[mid+1:])
-		node.height = 1 + max(self.get_height(node.left), self.get_height(node.right))
-		return node
-	self.root = build(values)
+			if not vals:
+				return None
+			mid = len(vals) // 2
+			node = AVLNode(vals[mid])
+			node.left = build(vals[:mid])
+			node.right = build(vals[mid+1:])
+			node.height = 1 + max(self.get_height(node.left), self.get_height(node.right))
+			return node
+		self.root = build(values)
 	def get_height(self, node):
 		return node.height if node else 0
 	def get_balance(self, node):
@@ -239,9 +308,10 @@ class AVL:
 			return self.rotate_left(node)
 		return node
 			\end{lstlisting}
-			
 		\end{tcolorbox}
 	\end{multicols}
+	
+	\newpage
 	\section*{\textcolor{blue}{Wykresy}}
 	
 	\begin{figure}[H]
