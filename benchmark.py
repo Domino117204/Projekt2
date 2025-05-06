@@ -78,6 +78,45 @@ class AVL:
     def __init__(self):
         self.root = None
 
+    def build_from_sorted(self, values):
+        def build(l, r):
+            if l > r:
+                return None
+            mid = (l + r) // 2
+            node = AVLNode(values[mid])
+            node.left = build(l, mid - 1)
+            node.right = build(mid + 1, r)
+            node.height = 1 + max(self.get_height(node.left), self.get_height(node.right))
+            return node
+        self.root = build(0, len(values) - 1)
+
+    def get_height(self, node):
+        return node.height if node else 0
+
+    def get_balance(self, node):
+        return self.get_height(node.left) - self.get_height(node.right) if node else 0
+
+    def update_height(self, node):
+        node.height = 1 + max(self.get_height(node.left), self.get_height(node.right))
+
+    def rotate_right(self, y):
+        x = y.left
+        T2 = x.right
+        x.right = y
+        y.left = T2
+        self.update_height(y)
+        self.update_height(x)
+        return x
+
+    def rotate_left(self, x):
+        y = x.right
+        T2 = y.left
+        y.left = x
+        x.right = T2
+        self.update_height(x)
+        self.update_height(y)
+        return y
+
     def insert(self, key):
         self.root = self._insert(self.root, key)
 
@@ -86,48 +125,26 @@ class AVL:
             return AVLNode(key)
         if key < node.key:
             node.left = self._insert(node.left, key)
-        else:
+        elif key > node.key:
             node.right = self._insert(node.right, key)
+        else:
+            return node  # ignorujemy duplikaty
 
-        node.height = 1 + max(self.get_height(node.left), self.get_height(node.right))
+        self.update_height(node)
         balance = self.get_balance(node)
 
         if balance > 1 and key < node.left.key:
-            return self.right_rotate(node)
+            return self.rotate_right(node)
         if balance < -1 and key > node.right.key:
-            return self.left_rotate(node)
+            return self.rotate_left(node)
         if balance > 1 and key > node.left.key:
-            node.left = self.left_rotate(node.left)
-            return self.right_rotate(node)
+            node.left = self.rotate_left(node.left)
+            return self.rotate_right(node)
         if balance < -1 and key < node.right.key:
-            node.right = self.right_rotate(node.right)
-            return self.left_rotate(node)
+            node.right = self.rotate_right(node.right)
+            return self.rotate_left(node)
 
         return node
-
-    def left_rotate(self, z):
-        y = z.right
-        T2 = y.left
-        y.left = z
-        z.right = T2
-        z.height = 1 + max(self.get_height(z.left), self.get_height(z.right))
-        y.height = 1 + max(self.get_height(y.left), self.get_height(y.right))
-        return y
-
-    def right_rotate(self, y):
-        x = y.left
-        T2 = x.right
-        x.right = y
-        y.left = T2
-        y.height = 1 + max(self.get_height(y.left), self.get_height(y.right))
-        x.height = 1 + max(self.get_height(x.left), self.get_height(x.right))
-        return x
-
-    def get_height(self, node):
-        return node.height if node else 0
-
-    def get_balance(self, node):
-        return self.get_height(node.left) - self.get_height(node.right) if node else 0
 
     def find_min(self):
         node = self.root
@@ -157,7 +174,7 @@ def benchmark(n, repeats=4):
     random.shuffle(values)
 
     bst_insert_times = []
-    avl_insert_times = []
+    avl_build_times = []
     inorder_bst_times = []
     inorder_avl_times = []
     balance_bst_times = []
@@ -166,23 +183,25 @@ def benchmark(n, repeats=4):
 
     for _ in range(repeats):
         bst = BST()
-        avl = AVL()
+        sorted_values = sorted(values)
 
         t1 = time.perf_counter()
         for v in values:
             bst.insert(v)
         bst_insert_times.append(time.perf_counter() - t1)
 
+        avl = AVL()
         t2 = time.perf_counter()
-        for v in values:
-            avl.insert(v)
-        avl_insert_times.append(time.perf_counter() - t2)
+        avl.build_from_sorted(sorted_values)
+        avl_build_times.append(time.perf_counter() - t2)
 
     bst = BST()
-    avl = AVL()
     for v in values:
         bst.insert(v)
-        avl.insert(v)
+
+    sorted_values = sorted(values)
+    avl = AVL()
+    avl.build_from_sorted(sorted_values)
 
     for _ in range(repeats):
         t1 = time.perf_counter() * 1000  
@@ -211,13 +230,14 @@ def benchmark(n, repeats=4):
 
     return (
         sum(bst_insert_times) / repeats,
-        sum(avl_insert_times) / repeats,
+        sum(avl_build_times) / repeats,
         sum(minmax_bst_times) / repeats,  
         sum(minmax_avl_times) / repeats,  
         sum(inorder_bst_times) / repeats,  
         sum(inorder_avl_times) / repeats, 
-        sum(balance_bst_times) / repeats   
+        sum(balance_bst_times) / repeats
     )
+
 
 
 def save_csv(filename, algorithm, n_list, times):
