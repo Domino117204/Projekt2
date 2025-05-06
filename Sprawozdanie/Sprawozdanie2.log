@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.19)  6 MAY 2025 21:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.12.19)  6 MAY 2025 22:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -869,13 +869,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-51.5179pt}.
 
 [2 <./Image/PP-PUT-WORD.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 240--242
+Underfull \hbox (badness 10000) in paragraph at lines 200--205
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--205
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--240
 
  []
 
 File: Image/PP-PUT-WORD.png Graphic file (type png)
 <use Image/PP-PUT-WORD.png>
-Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 314.
+Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 312.
 (pdftex.def)             Requested size: 284.52756pt x 59.91786pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -888,34 +898,34 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 PGFPlots: reading {results/czas_tworzenia_bst.csv}
 PGFPlots: reading {results/czas_tworzenia_avl.csv}
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-72.
+70.
  (C:\Users\oliwe\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-72.
+70.
 
 (C:\Users\oliwe\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-372.
+370.
 
 (C:\Users\oliwe\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-372.
+370.
 
 (C:\Users\oliwe\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 372.
+(Font)              <10> on input line 370.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 372.
+(Font)              <7> on input line 370.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 372.
+(Font)              <5> on input line 370.
 PGFPlots: reading {results/czas_minmax_bst.csv}
 PGFPlots: reading {results/czas_minmax_avl.csv}
 PGFPlots: reading {results/czas_balansowania_bst.csv}
@@ -923,7 +933,7 @@ PGFPlots: reading {results/czas_inorder_bst.csv}
 PGFPlots: reading {results/czas_inorder_avl.csv}
 File: Image/PP-PUT-WORD.png Graphic file (type png)
 <use Image/PP-PUT-WORD.png>
-Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 376.
+Package pdftex.def Info: Image/PP-PUT-WORD.png  used on input line 374.
 (pdftex.def)             Requested size: 284.52756pt x 59.91786pt.
 
 
@@ -949,7 +959,7 @@ Here is how much of TeX's memory you used:
  50503 multiletter control sequences out of 15000+600000
  610537 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,21n,101p,1027b,2231s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,21n,101p,1038b,2231s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/oliwe/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pf
 b><C:/Users/oliwe/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
 b><C:/Users/oliwe/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pf
@@ -962,7 +972,7 @@ b><C:/Users/oliwe/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb
 <C:/Users/oliwe/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><
 C:/Users/oliwe/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><
 C:/Users/oliwe/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
-Output written on Sprawozdanie2.pdf (4 pages, 334239 bytes).
+Output written on Sprawozdanie2.pdf (4 pages, 334349 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

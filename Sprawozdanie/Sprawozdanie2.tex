@@ -197,10 +197,8 @@ class BST:
 	
 	\section*{\textcolor{blue}{Tworzenie drzewa AVL}}
 	\begin{multicols}{2}
-		\noindent Klasa \textit{AVLNode} ma dodatkowo przypisaną wysokość węzła \textit{height}, wstępnie równa 1, dla przypadku liścia. Przydaje się ona do utrzymania zrównoważenia. Funkcja \textit{build\_from\_sorted()} buduje drzewo AVL z posortowanej listy, zgodnie z metodą połowienia binarnego. Funkcje \textit{get\_height()} i \textit{update\_height()} mają za zadanie obliczanie i aktualizowanie wysokości węzła, a funkcja \textit{get\_balance()} zwraca współczynnik zrównoważenia. Następne są dwie funkcje \textit{rotate\_right} i \textit{rotate\_left} odpowiadające za rotacje w prawo i w lewo, używające wcześniej wspomnianej funkcji \textit{update\_height()}. Funkcja \textit{insert())} jest odpowiedzialna za wstawianie nowego węzła do drzewa. Wykorzystuje do tego \textit{\_insert()} działające rekurencyjnie. Po wstawieniu węzła, aktualizowana jest wysokość i sprawdzany jest balans, w razie potrzeby później mogą zostać wykonane rotacje.
-
-		\noindent Poniżej drzewo AVL utworzone z liczb: 6 2 4 5 3 10 9 8 17 21 20 25 12 11 1 2
-		
+		\noindent Klasa \textit{AVLNode} ma dodatkowo przypisaną wysokość węzła \textit{height}, wstępnie równa 1, dla przypadku liścia. Przydaje się ona do utrzymania zrównoważenia. \\Funkcja \textit{build\_from\_sorted()} buduje drzewo AVL z posortowanej listy, zgodnie z metodą połowienia binarnego. \\Funkcje \textit{get\_height()} i \textit{update\_height()} mają za zadanie obliczanie i aktualizowanie wysokości węzła, a funkcja \textit{get\_balance()} zwraca współczynnik zrównoważenia. \\Następne są dwie funkcje \textit{rotate\_right} i \textit{rotate\_left} odpowiadające za rotacje w prawo i w lewo, używające wcześniej wspomnianej funkcji \textit{update\_height()}. Funkcja \textit{insert())} jest odpowiedzialna za wstawianie nowego węzła do drzewa. Wykorzystuje do tego \textit{\_insert()} działające rekurencyjnie. Po wstawieniu węzła, aktualizowana jest wysokość i sprawdzany jest balans, w razie potrzeby później mogą zostać wykonane rotacje.\\ \\
+		\noindent Poniżej drzewo AVL utworzone z liczb: \\6 2 4 5 3 10 9 8 17 21 20 25 12 11 1 2 \\ \\ 
 		\noindent Kolorem czerwonym został zaznaczony korzeń \\
 		Kolorem niebieskim węzły wewnętrzne \\
 		Kolorem zielonym liście
