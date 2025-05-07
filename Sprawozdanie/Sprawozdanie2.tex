@@ -122,7 +122,9 @@
 	\titleformat{\section}{\Huge\bfseries}{\thesection}{2em}{}
 	
 	\section*{\textcolor{blue}{Wprowadzenie}}
+	\noindent Celem niniejszego sprawozdania jest analiza i porównanie dwóch struktur danych: binarnego drzewa poszukiwań BST oraz samobalansującego się drzewa AVL. Obie struktury służą do przechowywania danych w sposób umożliwiający szybkie wyszukiwanie, wstawianie i usuwanie elementów. W praktyce jednak ich wydajność może się znacznie różnić.
 	
+	\noindent W ramach projektu zaimplementowano oba typy drzew, a następnie dokonano pomiarów czasu wykonywania podstawowych operacji dla zestawów danych o różnej wielkości i strukturze.
 	
 	\titleformat{\section}{\Large\bfseries}{\thesection}{2em}{}
 	\section*{\textcolor{blue}{Tworzenie drzewa BST}}
@@ -130,7 +132,8 @@
 		\noindent 
 		Klasa \textit{BSTNode} reprezentuje pojedynczy węzeł drzewa BST. Składa się z klucza \textit{key} i odnośników do lewego i prawego potomka. \\ Klasa \textit{BST} reprezentuje drzewo BST. Korzeń drzewa jest zapisany w \textit{root}. Funkcja \textit{insert} służy do dodawania nowych węzłów, wykorzystuje do tego \textit{\_insert}, które rekurencyjnie wstawia węzeł po lewej lub prawej stronie, zależnie od jego wartości. 
 		\vspace*{0.4cm}
-		\noindent \\Poniżej drzewo BST utworzone z liczb: 5 8 2 5 10 24 15 11 7 1 2
+		\noindent \\Poniżej drzewo BST utworzone z liczb: \\5 8 2 5 10 24 15 11 7 1 2
+		\\
 		
 		\noindent Kolorem czerwonym został zaznaczony korzeń \\
 		Kolorem niebieskim węzły wewnętrzne \\
@@ -203,7 +206,7 @@ class BST:
 		Kolorem niebieskim węzły wewnętrzne \\
 		Kolorem zielonym liście
 			
-		\vspace*{1cm}
+			
 		
 		\begin{tikzpicture}[
 			grow=down,
@@ -231,7 +234,6 @@ class BST:
 					child { node[fill=green!50] {20} }
 					child { node[fill=green!50] {25} } } };
 			\end{tikzpicture}
-		
 		\noindent 
 		
 		\begin{tcolorbox}[colback=black,colframe=gray!50!,arc=3mm,boxrule=0pt,left=0pt,right=0pt,width=\linewidth, sharp corners=south]
@@ -310,7 +312,7 @@ class AVL:
 	\end{multicols}
 	
 	\newpage
-	\section*{\textcolor{blue}{Wykresy}}
+	\section*{\textcolor{blue}{Porównanie czsów wykonania operacji}}
 	
 	\begin{figure}[H]
 		\centering
